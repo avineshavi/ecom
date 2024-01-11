@@ -1,0 +1,59 @@
+<!-- products/add_product.html -->
+
+
+{% extends "products/base.html" %}
+
+{% block content %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Product</h3>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.name.id_for_label }}">Product Name:</label>
+                                {{ form.name }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="{{ form.price.id_for_label }}">Product Price:</label>
+                                {{ form.price }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.price.id_for_label }}">Product Price:</label>
+                                {{ form.quantity }}
+                            </div>
+
+                            <!-- Repeat this pattern for other form fields -->
+
+                            <div class="mb-3">
+                                <label for="{{ form.image.id_for_label }}">Product Image:</label>
+                                {{ form.image }}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="{{ form.status.id_for_label }}">Status:</label>
+                                {{ form.status }}
+                            </div>
+
+                            <!-- Add other fields as needed -->
+
+                            <div class="mb-3">
+                                <a href="{% url 'list_products' %}" class="btn btn-secondary">Cancel</a>
+                                <input class="btn btn-primary " type="submit" value="Add Product" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
